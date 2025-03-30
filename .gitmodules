@@ -1,0 +1,3 @@
+[submodule "src/vlfd"]
+	path = src/vlfd
+	url = git@github.com:jwwang2003/vlfd.git
