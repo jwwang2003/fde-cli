@@ -1,0 +1,1 @@
+{"name":"afifo_test","file_lists":[{"name":"afifo_gate.v","path":"E:\\FDU\\FPGA Course\\I2C Project\\afifo_test\\afifo_gate.v","type":"verilog"},{"name":"afifo_test_cons.xml","path":"E:\\FDU\\FPGA Course\\I2C Project\\afifo_test\\afifo_test_cons.xml","type":"constraint"}],"target_device":"FDP3P7","settings":{"route":{"mode":"Direct Search"},"place":{"mode":"Timing Driven"}}}

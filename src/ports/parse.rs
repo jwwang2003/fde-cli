@@ -1,3 +1,8 @@
+/**
+ * Filename: parse.rs
+ * Desciprtion: Helper functions for parsing the constraints (.xml) file
+ */
+
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use serde_json;

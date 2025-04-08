@@ -1,6 +1,6 @@
 /**
- * Filename: bistream.rs
- * Description: Handles the reading & parsing of the bitstream file
+ * Filename: bitstream.rs
+ * Description: Handles the reading & parsing of the bitstream (.bit) file
  */
 
 use std::fs::File;
@@ -132,7 +132,7 @@ mod tests {
 
     #[test]
     fn test_read_valid_bitstream() {
-        let file_path = "projects/name_display/name_display_dc_bit.bit";
+        let file_path = "recipes/name_display/name_display_dc_bit.bit";
         // Initialize the ProgramDataReader with the test file.
         let mut reader = ProgramDataReader::new(file_path);
 

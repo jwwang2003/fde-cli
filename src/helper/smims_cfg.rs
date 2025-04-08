@@ -1,3 +1,8 @@
+/**
+ * Filename: smims_cfg.rs
+ * Desciprtion: A helper class that outputs a "printable" table for the Tabled library
+ */
+
 use tabled::Tabled;
 
 use crate::vlfd::cfg::CfgInfo;

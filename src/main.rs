@@ -3,6 +3,7 @@ mod cli;
 mod vlfd;
 mod ports;
 mod helper;
+mod manager;
 
 use anyhow::Result;
 use owo_colors::OwoColorize;

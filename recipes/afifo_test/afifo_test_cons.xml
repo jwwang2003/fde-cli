@@ -1,0 +1,27 @@
+<design name="top">
+  <port name="i_wdata[0]" position="P151"/>
+<port name="i_wdata[1]" position="P148"/>
+<port name="i_wdata[2]" position="P150"/>
+<port name="i_wdata[3]" position="P152"/>
+<port name="i_wdata[4]" position="P160"/>
+<port name="i_wdata[5]" position="P161"/>
+<port name="i_wdata[6]" position="P162"/>
+<port name="i_wdata[7]" position="P163"/>
+<port name="o_rdata[0]" position="P7"/>
+<port name="o_rdata[1]" position="P6"/>
+<port name="o_rdata[2]" position="P5"/>
+<port name="o_rdata[3]" position="P4"/>
+<port name="o_rdata[4]" position="P9"/>
+<port name="o_rdata[5]" position="P8"/>
+<port name="o_rdata[6]" position="P16"/>
+<port name="o_rdata[7]" position="P15"/>
+<port name="clk" position="P77"/>
+<port name="clk_30M" position="P185"/>
+<port name="rst" position="P165"/>
+<port name="nReset" position="P166"/>
+<port name="i_wr" position="P169"/>
+<port name="i_rd" position="P173"/>
+<port name="fifo_1_w_full" position="P20"/>
+<port name="o_rempty" position="P11"/>
+<port name="o_wfull" position="P10"/>
+    </design>

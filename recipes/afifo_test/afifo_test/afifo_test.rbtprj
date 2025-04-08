@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Rabbit Project File-->
+<project name="afifo_test" constraint="../afifo_test_cons.xml" bitstream="../afifo_test_dc_bit.bit">
+    <panel grid_width="50" grid_height="50"/>
+    <components>
+        <component type="Switch" name="in[2]" grid_x="5" grid_y="1">
+            <settings>
+                <setting name="is_low_active" value="false"/>
+            </settings>
+            <inputs>
+                <input pin="P150" port="SW"/>
+            </inputs>
+            <outputs/>
+        </component>
+        <component type="Switch" name="in[5]" grid_x="11" grid_y="1">
+            <settings>
+                <setting name="is_low_active" value="false"/>
+            </settings>
+            <inputs>
+                <input pin="P161" port="SW"/>
+            </inputs>
+            <outputs/>
+        </component>
+        <component type="Switch" name="nReset" grid_x="3" grid_y="9">
+            <settings>
+                <setting name="is_low_active" value="true"/>
+            </settings>
+            <inputs>
+                <input pin="P166" port="SW"/>
+            </inputs>
+            <outputs/>
+        </component>
+        <component type="Switch" name="in[4]" grid_x="9" grid_y="1">
+            <settings>
+                <setting name="is_low_active" value="false"/>
+            </settings>
+            <inputs>
+                <input pin="P160" port="SW"/>
+            </inputs>
+            <outputs/>
+        </component>
+        <component type="Switch" name="in[0]" grid_x="1" grid_y="1">
+            <settings>
+                <setting name="is_low_active" value="false"/>
+            </settings>
+            <inputs>
+                <input pin="P151" port="SW"/>
+            </inputs>
+            <outputs/>
+        </component>
+        <component type="Switch" name="in[1]" grid_x="3" grid_y="1">
+            <settings>
+                <setting name="is_low_active" value="false"/>
+            </settings>
+            <inputs>
+                <input pin="P148" port="SW"/>
+            </inputs>
+            <outputs/>
+        </component>
+        <component type="LED" name="out[2]" grid_x="5" grid_y="3">
+            <settings>
+                <setting name="is_low_active" value="false"/>
+                <setting name="color" usage="LED color" value="Red"/>
+            </settings>
+            <inputs/>
+            <outputs>
+                <output pin="P5" port="LED"/>
+            </outputs>
+        </component>
+        <component type="Switch" name="in[3]" grid_x="7" grid_y="1">
+            <settings>
+                <setting name="is_low_active" value="false"/>
+            </settings>
+            <inputs>
+                <input pin="P152" port="SW"/>
+            </inputs>
+            <outputs/>
+        </component>
+        <component type="Switch" name="in[7]" grid_x="15" grid_y="1">
+            <settings>
+                <setting name="is_low_active" value="false"/>
+            </settings>
+            <inputs>
+                <input pin="P163" port="SW"/>
+            </inputs>
+            <outputs/>
+        </component>
+        <component type="LED" name="o_empty" grid_x="13" grid_y="7">
+            <settings>
+                <setting name="is_low_active" value="false"/>
+                <setting name="color" usage="LED color" value="Red"/>
+            </settings>
+            <inputs/>
+            <outputs>
+                <output pin="P11" port="LED"/>
+            </outputs>
+        </component>
+        <component type="Button" name="nReset" grid_x="3" grid_y="7">
+            <settings>
+                <setting name="is_low_active" value="true"/>
+            </settings>
+            <inputs>
+                <input pin="P166" port="BTN"/>
+            </inputs>
+            <outputs/>
+        </component>
+        <component type="LED" name="out[6]" grid_x="13" grid_y="3">
+            <settings>
+                <setting name="is_low_active" value="false"/>
+                <setting name="color" usage="LED color" value="Red"/>
+            </settings>
+            <inputs/>
+            <outputs>
+                <output pin="P16" port="LED"/>
+            </outputs>
+        </component>
+        <component type="Switch" name="in[6]" grid_x="13" grid_y="1">
+            <settings>
+                <setting name="is_low_active" value="false"/>
+            </settings>
+            <inputs>
+                <input pin="P162" port="SW"/>
+            </inputs>
+            <outputs/>
+        </component>
+        <component type="LED" name="o_full" grid_x="15" grid_y="7">
+            <settings>
+                <setting name="is_low_active" value="false"/>
+                <setting name="color" usage="LED color" value="Red"/>
+            </settings>
+            <inputs/>
+            <outputs>
+                <output pin="P10" port="LED"/>
+            </outputs>
+        </component>
+        <component type="Button" name="e_rd" grid_x="8" grid_y="7">
+            <settings>
+                <setting name="is_low_active" value="false"/>
+            </settings>
+            <inputs>
+                <input pin="P173" port="BTN"/>
+            </inputs>
+            <outputs/>
+        </component>
+        <component type="Button" name="rst" grid_x="1" grid_y="7">
+            <settings>
+                <setting name="is_low_active" value="false"/>
+            </settings>
+            <inputs>
+                <input pin="P165" port="BTN"/>
+            </inputs>
+            <outputs/>
+        </component>
+        <component type="LED" name="out[1]" grid_x="3" grid_y="3">
+            <settings>
+                <setting name="is_low_active" value="false"/>
+                <setting name="color" usage="LED color" value="Red"/>
+            </settings>
+            <inputs/>
+            <outputs>
+                <output pin="P6" port="LED"/>
+            </outputs>
+        </component>
+        <component type="LED" name="out[7]" grid_x="15" grid_y="3">
+            <settings>
+                <setting name="is_low_active" value="false"/>
+                <setting name="color" usage="LED color" value="Red"/>
+            </settings>
+            <inputs/>
+            <outputs>
+                <output pin="P15" port="LED"/>
+            </outputs>
+        </component>
+        <component type="LED" name="w_full" grid_x="17" grid_y="7">
+            <settings>
+                <setting name="is_low_active" value="false"/>
+                <setting name="color" usage="LED color" value="Red"/>
+            </settings>
+            <inputs/>
+            <outputs>
+                <output pin="P20" port="LED"/>
+            </outputs>
+        </component>
+        <component type="Switch" name="rst" grid_x="1" grid_y="9">
+            <settings>
+                <setting name="is_low_active" value="false"/>
+            </settings>
+            <inputs>
+                <input pin="P165" port="SW"/>
+            </inputs>
+            <outputs/>
+        </component>
+        <component type="LED" name="out[4]" grid_x="10" grid_y="3">
+            <settings>
+                <setting name="is_low_active" value="false"/>
+                <setting name="color" usage="LED color" value="Red"/>
+            </settings>
+            <inputs/>
+            <outputs>
+                <output pin="P9" port="LED"/>
+            </outputs>
+        </component>
+        <component type="LED" name="out[5]" grid_x="11" grid_y="3">
+            <settings>
+                <setting name="is_low_active" value="false"/>
+                <setting name="color" usage="LED color" value="Red"/>
+            </settings>
+            <inputs/>
+            <outputs>
+                <output pin="P8" port="LED"/>
+            </outputs>
+        </component>
+        <component type="LED" name="out[0]" grid_x="1" grid_y="3">
+            <settings>
+                <setting name="is_low_active" value="false"/>
+                <setting name="color" usage="LED color" value="Red"/>
+            </settings>
+            <inputs/>
+            <outputs>
+                <output pin="P7" port="LED"/>
+            </outputs>
+        </component>
+        <component type="Button" name="e_wr" grid_x="6" grid_y="7">
+            <settings>
+                <setting name="is_low_active" value="false"/>
+            </settings>
+            <inputs>
+                <input pin="P169" port="BTN"/>
+            </inputs>
+            <outputs/>
+        </component>
+        <component type="LED" name="out[3]" grid_x="7" grid_y="3">
+            <settings>
+                <setting name="is_low_active" value="false"/>
+                <setting name="color" usage="LED color" value="Red"/>
+            </settings>
+            <inputs/>
+            <outputs>
+                <output pin="P4" port="LED"/>
+            </outputs>
+        </component>
+    </components>
+</project>

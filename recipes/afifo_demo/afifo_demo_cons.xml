@@ -1,0 +1,14 @@
+<design name="afifo">
+  <port name="i_wdata[0]" position="P151"/>
+<port name="i_wdata[1]" position="P148"/>
+<port name="o_rdata[0]" position="P7"/>
+<port name="o_rdata[1]" position="P6"/>
+<port name="i_wclk" position="P185"/>
+<port name="i_wrst_n" position="P152"/>
+<port name="i_wr" position="P160"/>
+<port name="i_rclk" position="P77"/>
+<port name="i_rrst_n" position="P162"/>
+<port name="i_rd" position="P163"/>
+<port name="o_wfull" position="P5"/>
+<port name="o_rempty" position="P4"/>
+    </design> 

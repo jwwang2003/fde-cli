@@ -1,0 +1,318 @@
+$timescale 100 ms
+$end
+$var wire 1 i_wdata[0] i_wdata[0] $end
+$var wire 1 i_wdata[1] i_wdata[1] $end
+$var wire 1 i_wdata[2] i_wdata[2] $end
+$var wire 1 i_wdata[3] i_wdata[3] $end
+$var wire 1 i_wdata[4] i_wdata[4] $end
+$var wire 1 i_wdata[5] i_wdata[5] $end
+$var wire 1 i_wdata[6] i_wdata[6] $end
+$var wire 1 i_wdata[7] i_wdata[7] $end
+$var wire 1 rst rst $end
+$var wire 1 nReset nReset $end
+$var wire 1 i_wr i_wr $end
+$var wire 1 i_rd i_rd $end
+$var wire 1 o_rdata[0] o_rdata[0] $end
+$var wire 1 o_rdata[1] o_rdata[1] $end
+$var wire 1 o_rdata[2] o_rdata[2] $end
+$var wire 1 o_rdata[3] o_rdata[3] $end
+$var wire 1 o_rdata[4] o_rdata[4] $end
+$var wire 1 o_rdata[5] o_rdata[5] $end
+$var wire 1 o_rdata[6] o_rdata[6] $end
+$var wire 1 o_rdata[7] o_rdata[7] $end
+$var wire 1 o_rempty o_rempty $end
+$var wire 1 o_wfull o_wfull $end
+$var wire 1 fifo_1_w_full fifo_1_w_full $end
+$enddefinitions $end
+$dumpvars
+b0 i_wdata[0]
+b0 i_wdata[1]
+b0 i_wdata[2]
+b0 i_wdata[3]
+b0 i_wdata[4]
+b0 i_wdata[5]
+b0 i_wdata[6]
+b0 i_wdata[7]
+b0 rst
+b0 nReset
+b0 i_wr
+b0 i_rd
+b0 o_rdata[0]
+b0 o_rdata[1]
+b0 o_rdata[2]
+b0 o_rdata[3]
+b0 o_rdata[4]
+b0 o_rdata[5]
+b0 o_rdata[6]
+b0 o_rdata[7]
+b0 o_rempty
+b0 o_wfull
+b0 fifo_1_w_full
+$end
+#0
+b1 o_rempty
+b1 nReset
+#19
+b1 i_wdata[3]
+#23
+b1 i_wdata[4]
+#29
+b1 i_wr
+#30
+b1 o_rdata[3]
+b1 o_rdata[4]
+#31
+b0 i_wr
+#33
+b0 o_rempty
+#36
+b0 i_wdata[3]
+#39
+b0 i_wdata[4]
+#41
+b1 i_wdata[5]
+#44
+b1 i_wdata[2]
+#48
+b1 i_wr
+#50
+b0 i_wr
+#56
+b0 i_wdata[2]
+#60
+b0 i_wdata[5]
+#62
+b1 i_wdata[6]
+#66
+b1 i_wdata[1]
+#71
+b1 i_wr
+#73
+b0 i_wr
+#76
+b0 i_wdata[1]
+#80
+b0 i_wdata[6]
+#83
+b1 i_wdata[7]
+#88
+b1 i_wdata[0]
+#104
+b1 i_wr
+#106
+b0 i_wr
+#147
+b1 i_rd
+#148
+b0 o_rdata[3]
+b0 o_rdata[4]
+#149
+b1 o_rdata[3]
+b1 o_rdata[4]
+#150
+b0 o_rdata[3]
+b0 o_rdata[4]
+#151
+b1 o_rdata[2]
+b1 o_rdata[5]
+#152
+b0 o_rdata[2]
+b0 o_rdata[5]
+#153
+b1 o_rdata[2]
+b1 o_rdata[5]
+#154
+b0 o_rdata[2]
+b0 o_rdata[5]
+#155
+b1 o_rdata[1]
+b1 o_rdata[6]
+#156
+b0 o_rdata[6]
+#158
+b0 o_rdata[1]
+#159
+b1 o_rdata[0]
+b1 o_rdata[7]
+#160
+b0 o_rdata[0]
+b0 o_rdata[7]
+#161
+b1 o_rdata[7]
+#162
+b0 o_rdata[7]
+#163
+b1 o_rempty
+#165
+b0 i_rd
+#167
+b0 i_wdata[0]
+b0 i_wdata[7]
+#170
+b1 i_wdata[0]
+#171
+b1 i_wr
+#172
+b1 o_rdata[0]
+#173
+b0 i_wr
+#175
+b0 o_rempty
+#179
+b1 i_wdata[1]
+b1 i_wdata[2]
+b1 i_wdata[3]
+b1 i_wdata[4]
+#191
+b1 i_wr
+#197
+b0 i_wr
+#204
+b0 i_wdata[4]
+#212
+b0 i_wdata[3]
+#213
+b0 i_wdata[2]
+#217
+b0 i_wdata[1]
+#218
+b0 i_wdata[0]
+#230
+b1 i_wdata[5]
+#232
+b1 i_wdata[6]
+#236
+b1 i_wdata[7]
+#240
+b1 i_wr
+#245
+b0 i_wr
+#250
+b1 i_wdata[3]
+#256
+b0 i_wdata[3]
+#261
+b1 i_rd
+#262
+b0 o_rdata[0]
+#263
+b1 o_rdata[0]
+#264
+b0 o_rdata[0]
+#265
+b1 o_rdata[0]
+b1 o_rdata[1]
+b1 o_rdata[2]
+b1 o_rdata[3]
+b1 o_rdata[4]
+#266
+b0 o_rdata[0]
+b0 o_rdata[1]
+b0 o_rdata[2]
+b0 o_rdata[3]
+b0 o_rdata[4]
+#267
+b1 o_rdata[0]
+b1 o_rdata[1]
+b1 o_rdata[2]
+b1 o_rdata[3]
+b1 o_rdata[4]
+#268
+b0 o_rdata[0]
+b0 o_rdata[1]
+b0 o_rdata[2]
+b0 o_rdata[3]
+b0 o_rdata[4]
+#269
+b1 o_rdata[0]
+b1 o_rdata[1]
+b1 o_rdata[2]
+b1 o_rdata[3]
+b1 o_rdata[4]
+#270
+b0 o_rdata[0]
+b0 o_rdata[1]
+b0 o_rdata[2]
+b0 o_rdata[3]
+b0 o_rdata[4]
+#271
+b1 o_rdata[0]
+b1 o_rdata[1]
+b1 o_rdata[2]
+b1 o_rdata[3]
+b1 o_rdata[4]
+#272
+b0 o_rdata[0]
+b0 o_rdata[1]
+b0 o_rdata[2]
+b0 o_rdata[3]
+b0 o_rdata[4]
+#273
+b1 o_rdata[0]
+b1 o_rdata[1]
+b1 o_rdata[2]
+b1 o_rdata[3]
+b1 o_rdata[4]
+#274
+b0 o_rdata[0]
+b0 o_rdata[1]
+b0 o_rdata[2]
+b0 o_rdata[3]
+b0 o_rdata[4]
+#275
+b1 o_rdata[0]
+b1 o_rdata[1]
+b1 o_rdata[2]
+b1 o_rdata[3]
+b1 o_rdata[4]
+#276
+b0 o_rdata[0]
+b0 o_rdata[1]
+b0 o_rdata[2]
+b0 o_rdata[3]
+b0 o_rdata[4]
+#277
+b1 o_rdata[5]
+b1 o_rdata[6]
+b1 o_rdata[7]
+#278
+b0 o_rdata[5]
+b0 o_rdata[6]
+b0 o_rdata[7]
+#279
+b1 o_rdata[5]
+b1 o_rdata[6]
+b1 o_rdata[7]
+#280
+b0 o_rdata[5]
+b0 o_rdata[6]
+b0 o_rdata[7]
+#281
+b1 o_rdata[5]
+b1 o_rdata[6]
+b1 o_rdata[7]
+#282
+b0 o_rdata[5]
+b0 o_rdata[6]
+b0 o_rdata[7]
+#283
+b1 o_rdata[5]
+b1 o_rdata[6]
+b1 o_rdata[7]
+#284
+b0 o_rdata[5]
+b0 o_rdata[6]
+b0 o_rdata[7]
+#285
+b1 o_rdata[5]
+b1 o_rdata[6]
+b1 o_rdata[7]
+#286
+b0 o_rdata[5]
+b0 o_rdata[6]
+b0 o_rdata[7]
+#287
+b1 o_rdata[1]
+b1 o_rempty
+#296
+b0 i_rd

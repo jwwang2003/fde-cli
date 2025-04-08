@@ -8,18 +8,19 @@ use std::fs::File;
 use std::vec::Vec;
 use xml::reader::{EventReader, XmlEvent};
 use owo_colors::OwoColorize;
+use anyhow::Result;
 
-use super::super::ports::Constraint_Port;
+use super::super::ports::ConstraintPort;
 
 /// Note that ports contains a variable_name -> port_name mapping
 pub struct ConstraintsReader {
     constraintsfile: String,
-    ports: Vec<Constraint_Port>
+    ports: Vec<ConstraintPort>
 }
  
 impl ConstraintsReader {
-     pub fn new(constraintsfile: String) -> Self {
-         ConstraintsReader { constraintsfile, ports: Vec::new() }
+     pub fn new(constraintsfile: &str) -> Self {
+         ConstraintsReader { constraintsfile: constraintsfile.to_string(), ports: Vec::new() }
      }
  
      pub fn read(&mut self) -> Result<(), String> {
@@ -47,7 +48,7 @@ impl ConstraintsReader {
                          }
  
                          // Store the port information in the vector
-                         self.ports.push(Constraint_Port{ name: port_name, port_name: position});
+                         self.ports.push(ConstraintPort{ name: port_name, port_name: position});
                      }
                  }
                  // Ok(XmlEvent::EndElement { name }) => {
@@ -67,7 +68,7 @@ impl ConstraintsReader {
      // Specialized purposes, this XML parser is for port -> position mappings
  
      /// Getter method for port constraints
-     pub fn get_ports(&self) -> &Vec<Constraint_Port> {
+     pub fn get_ports(&self) -> &Vec<ConstraintPort> {
          &self.ports
      }
      
@@ -87,9 +88,9 @@ mod tests {
 
     #[test]
     fn test_constraints() {
-        let xml_data_path = "projects/name_display/name_display_cons.xml";
+        let xml_data_path = "recipes/name_display/name_display_cons.xml";
 
-        let mut reader = ConstraintsReader::new(xml_data_path.to_string());
+        let mut reader = ConstraintsReader::new(xml_data_path);
         let result = reader.read();
         assert!(result.is_ok(), "Expected XML file to be read successfully");
         

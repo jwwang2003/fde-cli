@@ -1,0 +1,5 @@
+discover
+mount 0
+load_proj afifo_test
+program 0
+test 0
