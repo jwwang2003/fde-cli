@@ -1,5 +1,4 @@
 use std::collections::HashMap;
-use std::ptr::null_mut;
 use std::sync::{Arc, Mutex, MutexGuard, atomic::{AtomicBool, Ordering}};
 use std::thread;
 use std::time::Duration;
@@ -416,6 +415,25 @@ pub fn handle_command(command: &str, app_context: &mut AppContext) -> Result<boo
                 if let Err(e) = device_handler.io_open() {
                     println!("ERROR {e}");
                 }
+
+                // let mut tx_buffer: Vec<u16> = [
+                //     0x0,
+                //     0x0,
+                //     0x0,
+                //     0x0,
+                //     0x0,
+                //     0x0,
+                //     0x0,
+                //     0x0,
+                //     0x0,
+                //     0x0,
+                //     0x0,
+                //     0x0,
+                //     0x0,
+                //     0x0,
+                //     0x0,
+                //     0x0,
+                // ].to_vec();
                 
                 let mut tx_buffer: Vec<u16> = [
                     0x600,
@@ -457,6 +475,7 @@ pub fn handle_command(command: &str, app_context: &mut AppContext) -> Result<boo
                     0x0,
                     0x0,
                     0x0,
+
                     0x400,
                     0x0,
                     0x0,
@@ -466,38 +485,45 @@ pub fn handle_command(command: &str, app_context: &mut AppContext) -> Result<boo
                     0x0,
                     0x0,
                     0x0,
+
                     0x1400,
-                    0x0,
-                    0x0,
-                    0x0,
-                    0x1400,
-                    0x0,
-                    0x0,
-                    0x0,
-                    0x1400,
-                    0x0,
-                    0x0,
-                    0x0,
-                    0x1400,
-                    0x0,
-                    0x0,
-                    0x0,
-                    0x1400,
-                    0x0,
-                    0x0,
-                    0x0,
-                    0x1400,
-                    0x0,
-                    0x0,
-                    0x0,
-                    0x400,
                     0x0,
                     0x0,
                     0x0,
 
+                    0x1400,
+                    0x0,
+                    0x0,
+                    0x0,
+
+                    0x1400,
+                    0x0,
+                    0x0,
+                    0x0,
+
+                    0x1400,
+                    0x0,
+                    0x0,
+                    0x0,
+
+                    0x1400,
+                    0x0,
+                    0x0,
+                    0x0,
+
+                    0x1400,
+                    0x0,
+                    0x0,
+                    0x0,
+
+                    0x400,
+                    0x0,
+                    0x0,
+                    0x0,
                 ].to_vec();
 
                 let mut rx_buffer: Vec<u16> = [0u16; 8*7 + 12].to_vec();
+                // let mut rx_buffer: Vec<u16> = [0u16; 4 * 4].to_vec();
                 let _ = device_handler.io_write_read_data(&mut tx_buffer, &mut rx_buffer);
                 for chunk in rx_buffer.chunks_exact_mut(4) {
                     // Convert the current 4 elements into a u64
@@ -650,15 +676,11 @@ pub struct AppContext {
     pub io: Option<Vec<ports::IOPort>>
 }
 
-/**
-The main CLI app loop
- */
+
+/// The main CLI app loop
 pub fn run_cli() -> Result<()> {
     let mut prompt = Readline::default().prompt()?;
     let threads: ThreadHandle = Arc::new(Mutex::new(HashMap::new()));
-
-    let mut libusb_context: *mut libusb_ffi::libusb_context = null_mut();
-    // libusb_get_context(&mut libusb_context);
 
     // Initialization tasks:
     let mut app_context = AppContext{
