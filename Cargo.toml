@@ -17,5 +17,5 @@ serde = { version = "1.0.219", features = ["derive"] }
 serde_json = "1.0.140"
 shellish_parse = "2.2.0"
 tabled = "0.18.0"
-tempfile = "3.19.1"
+tempfile = "3.23.0"
 xml-rs = "0.8.25"
