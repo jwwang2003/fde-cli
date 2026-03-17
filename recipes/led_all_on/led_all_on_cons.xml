@@ -1,0 +1,10 @@
+<design name="led_all_on">
+  <port name="led_n[0]" position="P147"/>
+  <port name="led_n[1]" position="P145"/>
+  <port name="led_n[2]" position="P141"/>
+  <port name="led_n[3]" position="P140"/>
+  <port name="led_n[4]" position="P139"/>
+  <port name="led_n[5]" position="P138"/>
+  <port name="led_n[6]" position="P136"/>
+  <port name="led_n[7]" position="P135"/>
+</design>

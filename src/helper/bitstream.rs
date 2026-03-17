@@ -105,6 +105,7 @@ impl ProgramDataReader {
    
  
      // Getter to retrieve the program data.
+     #[allow(dead_code)]
      pub fn get_program_data(&self) -> &Vec<u16> {
          &self.program_data
      }
@@ -120,9 +121,28 @@ impl ProgramDataReader {
      // }
  
      pub fn preview_prorgam_data(&self) {
-       println!("{}:\n\t{:?}",
-         "Preview bitstream".green(),
-         &self.program_data.get(..20).unwrap());
+       let preview_len = self.program_data.len().min(20);
+       println!(
+           "{} {} {}",
+           "Preview bitstream".green().bold(),
+           format!("({} / {} words)", preview_len, self.program_data.len()).dimmed(),
+           "(hex)".cyan()
+       );
+
+       if preview_len == 0 {
+           println!("  {}", "(empty bitstream)".yellow());
+           return;
+       }
+
+       for (i, chunk) in self.program_data[..preview_len].chunks(8).enumerate() {
+           let offset = i * 8;
+           let row = chunk
+               .iter()
+               .map(|w| format!("0x{:04X}", w))
+               .collect::<Vec<_>>()
+               .join(" ");
+           println!("  {:04}: {}", offset, row);
+       }
      }
 }
 

@@ -10,6 +10,7 @@ use tabled::Tabled;
 use std::fmt;
 
 mod parse;
+#[allow(dead_code)]
 pub mod table;
 
 #[derive(Debug, Clone)]
@@ -31,11 +32,50 @@ impl fmt::Display for IOType {
 }
 
 #[derive(Debug, Clone)]
+pub enum ParseDataType {
+    Number,
+    Hex,
+    Ascii,
+    Binary,
+    TextLcd,
+}
+
+impl ParseDataType {
+    pub fn from_str(value: &str) -> Self {
+        match value.to_ascii_lowercase().as_str() {
+            "hex" => Self::Hex,
+            "ascii" | "ascii_letter" => Self::Ascii,
+            "binary" | "bin" => Self::Binary,
+            "textlcd" | "text_lcd" => Self::TextLcd,
+            _ => Self::Number,
+        }
+    }
+}
+
+#[derive(Debug, Clone)]
 pub struct Port {
     name: String,
     pin_name: String,
     pin_index: i32,
     value: bool
+}
+
+impl Port {
+    pub fn name(&self) -> &str {
+        &self.name
+    }
+
+    pub fn pin_name(&self) -> &str {
+        &self.pin_name
+    }
+
+    pub fn pin_index(&self) -> i32 {
+        self.pin_index
+    }
+
+    pub fn value(&self) -> bool {
+        self.value
+    }
 }
 
 /// Given a port constraint (a port entity read from the contraints .xml file),
@@ -65,21 +105,24 @@ pub struct IOPort {
     pub io_type: IOType,
     pub io_name: String,
     pub ports: Vec<Port>,
-    pub data: u64
+    pub data: u64,
+    pub parse_type: ParseDataType,
 }
 
 impl IOPort {
-    pub fn new(io_type: IOType, io_name: String, ports: Vec<Port>) -> Self {
-        Self { io_type, io_name , ports, data: 0u64 }
+    pub fn new(io_type: IOType, io_name: String, ports: Vec<Port>, parse_type: ParseDataType) -> Self {
+        Self { io_type, io_name , ports, data: 0u64, parse_type }
     }
 
     /// Returns a u64 decimal of the data represented by the port(s)
+    #[allow(dead_code)]
     pub fn get_value(&self) -> u64 {
         return self.data;
     }
 
     /// Change the value represented by the ports (update/mutate),
     /// the boolean value of each individual port will be updated too.
+    #[allow(dead_code)]
     pub fn change_value(&mut self, new_data: u64) {
         self.data = 0u64;
         let base = self.ports[0].pin_index;
@@ -111,6 +154,7 @@ impl IOPort {
     /// depending on the IO pins (unrelated pins would be set to 0).
     /// All the return values of the IO ports can then be ORed together to produce the
     /// final 64-bit uint to be sent to FDE's FIFO.
+    #[allow(dead_code)]
     pub fn get_write(&self) -> u64 {
         let mut temp: u64 = 0u64;
         // Do not handle the offset here
@@ -129,7 +173,8 @@ impl IOPort {
 /// `output_lookup` maps are used to decide the IO_Type for the grouped port.
 pub fn group_ports(
     ports: &Vec<Port>,
-    port_mapping: parse::PortMappings
+    port_mapping: parse::PortMappings,
+    connection_types: &HashMap<String, String>,
 ) -> Vec<IOPort> {
     let (input_lookup, output_lookup) = (port_mapping.input, port_mapping.output);
     
@@ -164,7 +209,12 @@ pub fn group_ports(
             IOType::DC
         };
 
-        io_ports.push(IOPort::new(io_type, base_name, group));
+        let parse_type = connection_types
+            .get(&base_name)
+            .map(|v| ParseDataType::from_str(v))
+            .unwrap_or(ParseDataType::Number);
+
+        io_ports.push(IOPort::new(io_type, base_name, group, parse_type));
     }
 
     io_ports
@@ -179,7 +229,7 @@ pub fn fde_parse_ports() -> Result<parse::PortMappings, Box<dyn std::error::Erro
         .expect(&format!("Failed to read JSON file at {}", json_file_path));
 
     match parse::parse_ports(&json_data) {
-        Ok((input, output)) => { return Ok(parse::PortMappings {input, output} ); }
+        Ok(mappings) => { return Ok(mappings); }
         Err(e) => {
             eprintln!("Error parsing JSON: {}", e);
             return Err(e);
@@ -253,7 +303,7 @@ mod tests {
             port_vec.push(new_port);
         }
 
-        let grouped = group_ports(&port_vec, port_mappings);
+        let grouped = group_ports(&port_vec, port_mappings, &HashMap::new());
 
         for group in grouped {
             println!("{:#?} {}", group.io_type, group.io_name);
@@ -283,7 +333,7 @@ mod tests {
             port_vec.push(new_port);
         }
 
-        let grouped = group_ports(&port_vec, port_mappings);
+        let grouped = group_ports(&port_vec, port_mappings, &HashMap::new());
 
         for group in grouped.iter().clone() {
             println!("{:#?} {}", group.io_type, group.io_name);

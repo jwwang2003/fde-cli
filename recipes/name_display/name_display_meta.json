@@ -1,4 +1,11 @@
 {
   "project_name": "Name display",
-  "description": "Default text LCD demo brought you by Jimmy Wang"
+  "description": "Default text LCD demo brought you by Jimmy Wang",
+  "connection_types": {
+    "lcd_db": "text_lcd",
+    "lcd_en": "number",
+    "lcd_rst": "number",
+    "rst": "number",
+    "clk": "number"
+  }
 }

@@ -1,0 +1,7 @@
+{
+  "project_name": "LED All On",
+  "description": "Sanity test: force all 8 low-active LEDs on",
+  "connection_types": {
+    "led_n": "binary"
+  }
+}

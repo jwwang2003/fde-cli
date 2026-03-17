@@ -1,0 +1,8 @@
+{
+  "project_name": "LED Pattern Animation",
+  "description": "Animated LED fill and sweep pattern using internal 30MHz clock (P185)",
+  "connection_types": {
+    "clk_30M": "number",
+    "led_n": "binary"
+  }
+}

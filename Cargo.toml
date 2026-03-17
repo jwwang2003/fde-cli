@@ -8,6 +8,7 @@ edition = "2024"
 
 [dependencies]
 anyhow = "1.0.97"
+libc = "0.2.177"
 libusb1-sys = "0.7.0"
 once_cell = "1.21.3"
 owo-colors = "4.2.0"
@@ -19,3 +20,4 @@ shellish_parse = "2.2.0"
 tabled = "0.18.0"
 tempfile = "3.19.1"
 xml-rs = "0.8.25"
+vlfd-rs = { path = "3rdparty/vlfd-rs" }
